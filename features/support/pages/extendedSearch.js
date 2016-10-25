@@ -10,10 +10,11 @@ var searchParametries = {
       fieldActorName : element.all(by.id('find_people')).get(0),
       buttonExtendedSearchByActor : element.all(by.css('.el_8.submit.nice_button')).get(0),
 }
+
 var extendedSearch = { 
     dataInput : function(partName, filmYear){
           
-        browser.wait(searchParametries.waitFilmDownload, 20000)
+        return browser.wait(searchParametries.waitFilmDownload, 20000)
         .then (function(){
               return searchParametries.fileldFilmName.sendKeys(partName)})
         .then (function(){
@@ -31,23 +32,24 @@ var extendedSearch = {
 
     checkFilm : function(filmName){
          
-        searchParametries.factualElement.getText()
+      return  searchParametries.factualElement.getText()
        .then(function(textvalue) {
              return expect(textvalue).to.deep.equal(filmName) })
  },
 
    inputActorsInformation : function(actorName){
         
-       browser.wait(searchParametries.waiting, 20000)
+      return browser.wait(searchParametries.waiting, 20000)
        .then(function(){
             return searchParametries.fieldActorName.sendKeys(actorName)})
        .then (function(){
         browser.sleep(2000);
             })
        .then (function(){
-           return  searchParametries.buttonExtendedSearchByActor.click()})
+      return  searchParametries.buttonExtendedSearchByActor.click()})
        .then( function(){
-            browser.sleep(2000);        })                                   
+            browser.sleep(2000);       
+       })                                   
           
 }
 }

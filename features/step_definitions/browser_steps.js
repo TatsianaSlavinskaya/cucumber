@@ -24,7 +24,7 @@ var steps = function () {
   });
 
   this.Then(/^I check film's title as "([^"]*)" and producer as "([^"]*)"$/, function (title, producer) {
-    return     filmPage.checkFilmParametries(title, producer);
+     return filmPage.checkFilmParametries(title, producer);
        
   });      
  
@@ -41,7 +41,7 @@ var steps = function () {
     });
 
   this.Then(/^I click on extended search by actor$/, function(){
-     homePage.extendSearch();
+        return   homePage.extendSearch();
   });
 
    this.Then(/^I cheсk extended search by actor as "([^"]*)"$/, function(actorName){
