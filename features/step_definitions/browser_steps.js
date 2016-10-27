@@ -2,6 +2,7 @@
 var homePage = require('../support/pages/homePage.js');
 var filmPage = require('../support/pages/filmPage.js');
 var extendedSearch = require('../support/pages/extendedSearch.js');
+var header = require('../support/pages/header.js');
 var steps = function () {
 
   this.setDefaultTimeout(60000);
