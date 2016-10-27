@@ -48,7 +48,6 @@ var homePage = {
   searchFilm: function(film){
     var linkToFilmName = element(by.id('search_input'));
     var buttonFilmSearch = element.all(by.css('.searchButton1')).get(0);
-    var linkChoosenFilm = element.all(by.css('.js-serp-metrika')).get(7);
     
     linkToFilmName.sendKeys(film)
     .then(function(){
@@ -59,9 +58,6 @@ var homePage = {
    })
     .then (function(){
      return browser.sleep(3000);   
-    })
-    .then(function(){
-      return linkChoosenFilm.click()
     })
     .then (function(){
       return browser.sleep(3000);    

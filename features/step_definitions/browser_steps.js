@@ -20,9 +20,12 @@ var steps = function () {
     return homePage.comparationOfValues(name);
  });
   
-  this.Then(/^I search film as "([^"]*)"$/, function (film) {
+  this.Then(/^I input film's name as "([^"]*)"$/, function (film) {
       return homePage.searchFilm(film);
   });
+  this.Then(/^I click on buuton to saerch$/, function(){
+    return homePage.clickOnSearch();
+  })
 
   this.Then(/^I check film's title as "([^"]*)" and producer as "([^"]*)"$/, function (title, producer) {
      return filmPage.checkFilmParametries(title, producer);
@@ -48,6 +51,15 @@ var steps = function () {
    this.Then(/^I cheсk extended search by actor as "([^"]*)"$/, function(actorName){
       return extendedSearch.inputActorsInformation(actorName);
    }); 
+   this.Then(/^I click on link support$/, function () {
+     return homePage.clickOnHelp();
+   });
+   this.Then(/^I click on what people looking for$/, function (){
+     return homePage.clickOnWhatSearch();
+   });
+   this.Then(/^I click on return to home page$/, function(){
+     return homePage.clickOnReturnToHomePage();
+   });
 
 };
 
