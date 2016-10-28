@@ -1,13 +1,14 @@
 var gulp = require('gulp');
-
 var cucumber = require('gulp-cucumber');
-
-
 var angularProtractor = require('gulp-angular-protractor');
+var  util = require('gulp-util');
+var exec = require('child-process-promise').exec;
 
 
 gulp.task("test", function() {
-	return gulp.src(['./src/tests/*.js'])
+	util.env.browser ? process.env.BROWSER = util.env.browser : process.env.BROWSER = "chrome";
+	util.env.tag ? process.env.TAGS = util.env.tag : process.env.TAGS = [];
+	return gulp.src(['features/*'])
 		.pipe(angularProtractor({
 			'configFile': 'conf.js',
 			'autoStartStopServer': true,
@@ -17,3 +18,4 @@ gulp.task("test", function() {
 			throw e
 		});
 });
+

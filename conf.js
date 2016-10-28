@@ -10,7 +10,7 @@ exports.config = {
   frameworkPath: require.resolve('protractor-cucumber-framework'),
 
   multiCapabilities: [
-  {'browserName': 'chrome',
+  {'browserName': process.env.BROWSER,
    chromeOptions : {
             args: ['start-maximized','--disable-extensions']
         },
@@ -25,7 +25,8 @@ exports.config = {
   }],
 
   cucumberOpts: {
-    require: 'features/step_definitions/browser_steps.js'
+    require: 'features/step_definitions/browser_steps.js',
+    tags:['~@ignore']
   },
   onPrepare : function() {
         var chai = require('chai');

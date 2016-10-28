@@ -10,7 +10,7 @@
   Then I check film's name after extended search as "Кровь и железо: История немецкой военной машины (мини-сериал)"
   Then I click on extended search by actor
   Then I cheсk extended search by actor as "Леонардо"
-
+@ignore
  Scenario: check links
  Given I navigate to "https://www.kinopoisk.ru/"
   Then I click on link support
